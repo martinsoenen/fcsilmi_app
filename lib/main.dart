@@ -1,4 +1,7 @@
+import 'package:fcsilmi_app/resources/NavBar.dart';
 import 'package:fcsilmi_app/screens/infos.dart';
+import 'package:fcsilmi_app/screens/matchResults.dart';
+import 'package:fcsilmi_app/screens/stats.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,12 +13,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FC Silmi',
-      theme: ThemeData( // TODO : voir si ça vaut le coup de laisser ça
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+      color: Colors.yellow,
+      home: DefaultTabController(
+        length: 3,
+        child: new Scaffold(
+          body: TabBarView(
+            children: [
+              new Container(
+                child: InfosPage(),
+              ),
+              new Container(
+                child: StatsPage(),
+              ),
+              new Container(
+                child: MatchResultsPage(),
+              ),
+            ],
+          ),
+          bottomNavigationBar: NavBar(),
+        ),
       ),
-      home: InfosPage(),
     );
   }
 }
