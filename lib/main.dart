@@ -1,7 +1,7 @@
 import 'package:fcsilmi_app/resources/NavBar.dart';
-import 'package:fcsilmi_app/screens/infos.dart';
-import 'package:fcsilmi_app/screens/matchResults.dart';
 import 'package:fcsilmi_app/screens/stats.dart';
+import 'package:fcsilmi_app/screens/matchResults.dart';
+import 'package:fcsilmi_app/screens/players.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           body: TabBarView(
             children: [
               new Container(
-                child: InfosPage(),
+                child: PlayersPage(),
               ),
               new Container(
                 child: StatsPage(),

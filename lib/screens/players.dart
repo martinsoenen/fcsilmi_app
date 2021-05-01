@@ -1,12 +1,11 @@
-import 'package:fcsilmi_app/resources/NavBar.dart';
 import 'package:flutter/material.dart';
 
-class InfosPage extends StatefulWidget {
+class PlayersPage extends StatefulWidget {
   @override
-  _InfosPageState createState() => _InfosPageState();
+  _PlayersPageState createState() => _PlayersPageState();
 }
 
-class _InfosPageState extends State<InfosPage> {
+class _PlayersPageState extends State<PlayersPage> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -14,7 +13,7 @@ class _InfosPageState extends State<InfosPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            'Page d\'informations',
+            'Page des joueurs',
           ),
         ],
       ),

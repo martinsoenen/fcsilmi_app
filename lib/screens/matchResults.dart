@@ -1,4 +1,3 @@
-import 'package:fcsilmi_app/resources/NavBar.dart';
 import 'package:flutter/material.dart';
 
 class MatchResultsPage extends StatefulWidget {
