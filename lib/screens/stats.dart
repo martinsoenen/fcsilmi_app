@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:fcsilmi_app/models/Infos.dart';
+import 'package:fcsilmi_app/models/infos.dart';
 import 'package:fcsilmi_app/resources/Point.dart';
 import 'package:fcsilmi_app/resources/const.dart';
 import 'package:flutter/material.dart';
@@ -150,9 +150,9 @@ class _StatsPageState extends State<StatsPage> {
             ),
           );
         } else if (snapshot.hasError) {
-          return Text('Error: ${snapshot.error}'); // TODO centrer
+          return Center(child: Text('Error: ${snapshot.error}'));
         } else {
-          return CircularProgressIndicator(); // TODO centrer
+          return Center(child: CircularProgressIndicator());
         }
       }
     );
