@@ -1,13 +1,16 @@
-import 'dart:convert';
-
 import 'package:fcsilmi_app/models/infos.dart';
-import 'package:fcsilmi_app/resources/Point.dart';
+import 'package:fcsilmi_app/resources/SessionStats.dart';
+import 'package:fcsilmi_app/resources/Stats.dart';
 import 'package:fcsilmi_app/resources/const.dart';
+import 'package:fcsilmi_app/resources/Point.dart';
+
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:pie_chart/pie_chart.dart';
 
 class StatsPage extends StatefulWidget {
+  String selectedSession;
+
   @override
   _StatsPageState createState() => _StatsPageState();
 }
@@ -20,12 +23,17 @@ class _StatsPageState extends State<StatsPage> {
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
           var info = snapshot.data as Infos;
+          List<String> datesSessions = List<String>();
+          datesSessions.add("Toutes sessions");
+
+          info.sessions.forEach((key, value) {
+            datesSessions.add(key);
+          });
 
           return SingleChildScrollView(
             child: Center(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
+                children: [
                   SizedBox(height: 90),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(500),
@@ -41,82 +49,24 @@ class _StatsPageState extends State<StatsPage> {
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 42),
                   ),
                   SizedBox(height: 40),
-                  Padding(
-                    padding: const EdgeInsets.all(60),
-                    child: PieChart(
-                      dataMap: {
-                        "${info.wins} victoires": info.wins.toDouble(),
-                        "${info.ties} nuls": info.ties.toDouble(),
-                        "${info.losses} défaites": info.losses.toDouble(),
+                  DropdownButton(
+                      hint: new Text("Sélectionnez une session"),
+                      items: datesSessions.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      value: widget.selectedSession,
+                      onChanged: (value) {
+                        setState(() => widget.selectedSession = value);
                       },
-                      colorList: [
-                        winGreen,
-                        greyTie,
-                        redLoss,
-                      ],
-                      initialAngleInDegree: -120,
-                      legendOptions: LegendOptions(
-                        showLegendsInRow: true,
-                        legendPosition: LegendPosition.bottom,
-                      ),
-                      chartValuesOptions: ChartValuesOptions(
-                        showChartValueBackground: false,
-                        showChartValuesInPercentage: true,
-                      ),
-                      chartType: ChartType.ring,
-                    ),
                   ),
-                  Container(
-                    constraints: BoxConstraints(minWidth: 100, maxWidth: 260),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Text("Total de points"),
-                            Text("Buts marqués"),
-                            Text("Buts encaissés"),
-                            Text("Saisons disputées"),
-                            Text("Meilleur division"),
-                            Text("Titres remportés"),
-                            Text("Championnats remportés"),
-                            Text("Coupes remportées"),
-                            Text("Promotions"),
-                            Text("Relégations"),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text(info.points.toString()),
-                            Text(info.alltimeGoals.toString()),
-                            Text(info.alltimeGoalsAgainst.toString()),
-                            Text(info.seasons.toString()),
-                            Text(info.bestDivision.toString()),
-                            Text(info.titlesWon.toString()),
-                            Text(info.titlesWon.toString()),
-                            Text(info.leaguesWon.toString()),
-                            Text(info.totalCupsWon.toString()),
-                            Text(info.promotions.toString()),
-                            Text(info.relegations.toString()),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
+                  widget.selectedSession != null && widget.selectedSession != "Toutes sessions" ? SessionStats(info: info.sessions[widget.selectedSession]) : Stats(info: info),
                   SizedBox(height: 40),
                   Text(
                     "Saison actuelle",
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 32),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(8,0,20,0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-
-                      ],
-                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(8,0,20,0),
@@ -145,9 +95,8 @@ class _StatsPageState extends State<StatsPage> {
                       ],
                     ),
                   )
-                  // TODO backend : données pour chaque joueur
                 ],
-              ),
+              )
             ),
           );
         } else if (snapshot.hasError) {
