@@ -1,5 +1,6 @@
 import 'package:fcsilmi_app/models/match.dart';
 import 'package:fcsilmi_app/resources/MatchDetailRow.dart';
+import 'package:fcsilmi_app/resources/MatchPlayerStats.dart';
 import 'package:fcsilmi_app/resources/ScoreText.dart';
 
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 class MatchDetailsPage extends StatefulWidget {
   final SilmiMatch match;
   final double imagesSize = 80;
+  String selectedPlayer;
 
   MatchDetailsPage({
     this.match
@@ -19,6 +21,11 @@ class MatchDetailsPage extends StatefulWidget {
 class _MatchDetailsPageState extends State<MatchDetailsPage> {
   @override
   Widget build(BuildContext context) {
+    List<String> matchPlayers = List<String>();
+    widget.match.players.forEach((key, value) {
+      matchPlayers.add(key);
+    });
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -84,8 +91,22 @@ class _MatchDetailsPageState extends State<MatchDetailsPage> {
           MatchDetailRow(middleText: "Passes tentées",fcSilmiStat: widget.match.clubs.fcsilmi.passattempts.toString(), contestantStat: widget.match.clubs.contestant.passattempts.toString()),
           MatchDetailRow(middleText: "Taux de réussite passes",fcSilmiStat: (widget.match.clubs.fcsilmi.passesmade / widget.match.clubs.fcsilmi.passattempts * 100).toStringAsFixed(2) + '%', contestantStat: (widget.match.clubs.contestant.passesmade / widget.match.clubs.contestant.passattempts * 100).toStringAsFixed(2) + '%'),
           MatchDetailRow(middleText: "Cartons rouges",fcSilmiStat: widget.match.clubs.fcsilmi.redcards.toString(), contestantStat: widget.match.clubs.contestant.redcards.toString()),
+          SizedBox(height: 20),
+          DropdownButton(
+              items: matchPlayers.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              hint: Text("Voir les statistiques d'un joueur"),
+              value: widget.selectedPlayer,
+              onChanged: (value) => {
+                setState(() => widget.selectedPlayer = value),
+              },
+          ),
+          if (widget.selectedPlayer != null) MatchPlayerStats(player: widget.match.players[widget.selectedPlayer])
         ],
-        // TODO backend : données pour chaque joueur
       )
     );
   }
