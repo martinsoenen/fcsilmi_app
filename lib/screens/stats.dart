@@ -145,6 +145,7 @@ class _StatsPageState extends State<StatsPage> {
                       ],
                     ),
                   )
+                  // TODO backend : données pour chaque joueur
                 ],
               ),
             ),
