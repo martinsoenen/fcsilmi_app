@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class StatsPage extends StatefulWidget {
-  String selectedSession;
+  String selectedSession = "Toutes sessions";
 
   @override
   _StatsPageState createState() => _StatsPageState();
@@ -50,7 +50,6 @@ class _StatsPageState extends State<StatsPage> {
                   ),
                   SizedBox(height: 40),
                   DropdownButton(
-                      hint: new Text("Sélectionnez une session"),
                       items: datesSessions.map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,

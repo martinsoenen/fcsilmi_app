@@ -4,13 +4,18 @@ import 'package:fcsilmi_app/resources/const.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 
-class Stats extends StatelessWidget {
+class Stats extends StatefulWidget {
   final Infos info;
 
   Stats({
     this.info,
   });
 
+  _StatsState createState() => _StatsState();
+
+}
+
+class _StatsState extends State<Stats> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,9 +25,9 @@ class Stats extends StatelessWidget {
           padding: const EdgeInsets.all(60),
           child: PieChart(
             dataMap: {
-              "${info.wins} victoires": info.wins.toDouble(),
-              "${info.ties} nuls": info.ties.toDouble(),
-              "${info.losses} défaites": info.losses.toDouble(),
+              "${widget.info.wins} victoires": widget.info.wins.toDouble(),
+              "${widget.info.ties} nuls": widget.info.ties.toDouble(),
+              "${widget.info.losses} défaites": widget.info.losses.toDouble(),
             },
             colorList: [
               winGreen,
@@ -64,17 +69,17 @@ class Stats extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Text(info.alltimeGoals.toString()),
-                  Text(info.alltimeGoalsAgainst.toString()),
-                  Text((info.alltimeGoals / info.totalGames).toStringAsFixed(2)),
-                  Text((info.alltimeGoalsAgainst / info.totalGames).toStringAsFixed(2)),
-                  Text(info.seasons.toString()),
-                  Text(info.bestDivision.toString()),
-                  Text(info.titlesWon.toString()),
-                  Text(info.leaguesWon.toString()),
-                  Text(info.totalCupsWon.toString()),
-                  Text(info.promotions.toString()),
-                  Text(info.relegations.toString()),
+                  Text(widget.info.alltimeGoals.toString()),
+                  Text(widget.info.alltimeGoalsAgainst.toString()),
+                  Text((widget.info.alltimeGoals / widget.info.totalGames).toStringAsFixed(2)),
+                  Text((widget.info.alltimeGoalsAgainst / widget.info.totalGames).toStringAsFixed(2)),
+                  Text(widget.info.seasons.toString()),
+                  Text(widget.info.bestDivision.toString()),
+                  Text(widget.info.titlesWon.toString()),
+                  Text(widget.info.leaguesWon.toString()),
+                  Text(widget.info.totalCupsWon.toString()),
+                  Text(widget.info.promotions.toString()),
+                  Text(widget.info.relegations.toString()),
                 ],
               )
             ],
