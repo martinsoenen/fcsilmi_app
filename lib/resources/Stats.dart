@@ -52,6 +52,8 @@ class _StatsState extends State<Stats> {
           padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
           child: Column(
             children: [
+              DetailRowByTwo(leftText: "Nombre de matchs joués", rightText: widget.info.totalGames.toString()), // TODO later : voir si on ne peut pas mettre ça mieux
+              StatsDivider(color: fourthColor, padding: 10),
               DetailRowByTwo(leftText: "Buts marqués", rightText: widget.info.alltimeGoals.toString()),
               StatsDivider(color: fourthColor, padding: 10),
               DetailRowByTwo(leftText: "Buts encaissés", rightText: widget.info.alltimeGoalsAgainst.toString()),
