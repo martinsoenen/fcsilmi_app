@@ -42,24 +42,23 @@ class _MatchResultsPageState extends State<MatchResultsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child:
-        PagedListView.separated(
-            pagingController: _pagingController,
-            separatorBuilder: (context, index) => Divider(
-              color: Colors.grey,
-            ),
-            builderDelegate: PagedChildBuilderDelegate(
-              itemBuilder: (context, item, index) => MatchCard(silmiMatch: item)
-            )
-        )
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Derniers matchs"),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: PagedListView.separated(
+              pagingController: _pagingController,
+              separatorBuilder: (context, index) => Divider(
+                color: Colors.grey,
+              ),
+              builderDelegate: PagedChildBuilderDelegate(
+                itemBuilder: (context, item, index) => MatchCard(silmiMatch: item)
+              )
+          )
+      ),
     );
-
-    @override
-    void dispose() {
-      _pagingController.dispose();
-      super.dispose();
-    }
   }
 }
 
