@@ -3,6 +3,7 @@ import 'package:fcsilmi_app/resources/SessionStats.dart';
 import 'package:fcsilmi_app/resources/Stats.dart';
 import 'package:fcsilmi_app/resources/const.dart';
 import 'package:fcsilmi_app/resources/Point.dart';
+import 'package:fcsilmi_app/screens/infos.dart';
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class _StatsPageState extends State<StatsPage> {
           IconButton(
             icon: Icon(Icons.info_outline_rounded),
             onPressed: () {
-              print("page d'infos"); // TODO : page d'infos
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => InfosPage()));
             }
           ),
         ],
