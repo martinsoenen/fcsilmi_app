@@ -1,19 +1,20 @@
-import 'package:fcsilmi_app/resources/const.dart';
 import 'package:flutter/material.dart';
 
 class StatsDivider extends StatelessWidget {
-  final bool restricted;
+  final double padding;
+  final Color color;
 
   StatsDivider({
-    this.restricted,
+    this.padding,
+    this.color,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: restricted == true ? EdgeInsets.fromLTRB(60, 0, 60, 0) : EdgeInsets.fromLTRB(40, 0, 40, 0),
+      padding: EdgeInsets.fromLTRB(padding, 0, padding, 0),
       child: Divider(
-        color: fourthColor,
+        color: color,
         thickness: 1,
       ),
     );

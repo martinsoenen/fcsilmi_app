@@ -34,16 +34,16 @@ class _StatsPageState extends State<StatsPage> {
             child: Center(
               child: Column(
                 children: [
-                  SizedBox(height: 90),
+                  SizedBox(height: 60),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(500),
                     child: Image.network(
-                      'https://raw.githubusercontent.com/wbeuil/fcsilmi/main/public/images/fcsilmi.jpg',
-                      height: 120.0,
-                      width: 120.0,
+                      'https://raw.githubusercontent.com/wbeuil/fcsilmi/b784ff28047fc10eef6ef29f8f89af4bce48464a/public/images/fcsilmi.png',
+                      height: 160.0,
+                      width: 160.0,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   Text(
                     "FC Silmi",
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 42),
@@ -62,13 +62,13 @@ class _StatsPageState extends State<StatsPage> {
                       },
                   ),
                   widget.selectedSession != null && widget.selectedSession != "Toutes sessions" ? SessionStats(info: info.sessions[widget.selectedSession]) : Stats(info: info),
-                  SizedBox(height: 40),
+                  SizedBox(height: 46),
                   Text(
                     "Saison actuelle",
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 32),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(8,0,20,0),
+                    padding: const EdgeInsets.fromLTRB(8,14,20,30),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [

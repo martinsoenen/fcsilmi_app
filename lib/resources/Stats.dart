@@ -1,5 +1,6 @@
 import 'package:fcsilmi_app/models/infos.dart';
-import 'package:fcsilmi_app/resources/StatText.dart';
+import 'package:fcsilmi_app/resources/DetailRowByTwo.dart';
+import 'package:fcsilmi_app/resources/StatsDivider.dart';
 import 'package:fcsilmi_app/resources/const.dart';
 
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class _StatsState extends State<Stats> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(60),
+          padding: const EdgeInsets.fromLTRB(60, 30, 60, 30),
           child: PieChart(
             dataMap: {
               "${widget.info.wins} victoires": widget.info.wins.toDouble(),
@@ -47,42 +48,31 @@ class _StatsState extends State<Stats> {
             chartType: ChartType.ring,
           ),
         ),
-        Container(
-          constraints: BoxConstraints(minWidth: 100, maxWidth: 260),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Padding(
+          padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+          child: Column(
             children: [
-              Column(
-                children: [
-                  StatText(text: "Buts marqués"),
-                  StatText(text: "Buts encaissés"),
-                  StatText(text: "Buts marqués/match"),
-                  StatText(text: "Buts encaissés/match"),
-                  StatText(text: "Saisons disputées"),
-                  StatText(text: "Meilleur division"),
-                  StatText(text: "Titres remportés"),
-                  StatText(text: "Championnats remportés"),
-                  StatText(text: "Coupes remportées"),
-                  StatText(text: "Promotions"),
-                  StatText(text: "Relégations"),
-                ],
-              ),
-              Column(
-                children: [
-                  StatText(text: widget.info.alltimeGoals.toString()),
-                  StatText(text: widget.info.alltimeGoalsAgainst.toString()),
-                  StatText(text: (widget.info.alltimeGoals / widget.info.totalGames).toStringAsFixed(2)),
-                  StatText(text: (widget.info.alltimeGoalsAgainst / widget.info.totalGames).toStringAsFixed(2)),
-                  StatText(text: widget.info.seasons.toString()),
-                  StatText(text: widget.info.bestDivision.toString()),
-                  StatText(text: widget.info.titlesWon.toString()),
-                  StatText(text: widget.info.leaguesWon.toString()),
-                  StatText(text: widget.info.totalCupsWon.toString()),
-                  StatText(text: widget.info.promotions.toString()),
-                  StatText(text: widget.info.relegations.toString()),
-                ],
-              )
+              DetailRowByTwo(leftText: "Buts marqués", rightText: widget.info.alltimeGoals.toString()),
+              StatsDivider(color: fourthColor, padding: 10),
+              DetailRowByTwo(leftText: "Buts encaissés", rightText: widget.info.alltimeGoalsAgainst.toString()),
+              StatsDivider(color: fourthColor, padding: 10),
+              DetailRowByTwo(leftText: "Buts marqués/match", rightText: (widget.info.alltimeGoals / widget.info.totalGames).toStringAsFixed(2)),
+              StatsDivider(color: fourthColor, padding: 10),
+              DetailRowByTwo(leftText: "Buts encaissés/match", rightText: (widget.info.alltimeGoalsAgainst / widget.info.totalGames).toStringAsFixed(2)),
+              StatsDivider(color: fourthColor, padding: 10),
+              DetailRowByTwo(leftText: "Saisons disputées", rightText: widget.info.seasons.toString()),
+              StatsDivider(color: fourthColor, padding: 10),
+              DetailRowByTwo(leftText: "Meilleur division", rightText: widget.info.bestDivision.toString()),
+              StatsDivider(color: fourthColor, padding: 10),
+              DetailRowByTwo(leftText: "Titres remportés", rightText: widget.info.titlesWon.toString()),
+              StatsDivider(color: fourthColor, padding: 10),
+              DetailRowByTwo(leftText: "Championnats remportés", rightText: widget.info.leaguesWon.toString()),
+              StatsDivider(color: fourthColor, padding: 10),
+              DetailRowByTwo(leftText: "Coupes remportées", rightText: widget.info.totalCupsWon.toString()),
+              StatsDivider(color: fourthColor, padding: 10),
+              DetailRowByTwo(leftText: "Promotions", rightText: widget.info.promotions.toString()),
+              StatsDivider(color: fourthColor, padding: 10),
+              DetailRowByTwo(leftText: "Relégations", rightText: widget.info.relegations.toString()),
             ],
           ),
         ),

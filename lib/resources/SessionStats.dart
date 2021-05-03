@@ -1,4 +1,5 @@
-import 'package:fcsilmi_app/resources/StatText.dart';
+import 'package:fcsilmi_app/resources/DetailRowByTwo.dart';
+import 'package:fcsilmi_app/resources/StatsDivider.dart';
 import 'package:fcsilmi_app/resources/const.dart';
 
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class SessionStats extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(60),
+          padding: const EdgeInsets.fromLTRB(60, 30, 60, 30),
           child: PieChart(
             dataMap: {
               "${info["wins"]} victoires": info["wins"].toDouble(),
@@ -41,57 +42,49 @@ class SessionStats extends StatelessWidget {
             chartType: ChartType.ring,
           ),
         ),
-        Container(
-          constraints: BoxConstraints(minWidth: 100, maxWidth: 260),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  StatText(text: "Nombre de matchs joués"), // TODO voir si on ne peut pas mettre ça mieux
-                  StatText(text: "Buts marqués"),
-                  StatText(text: "Buts encaissés"),
-                  StatText(text: "Buts marqués/match"),
-                  StatText(text: "Buts encaissés/match"),
-                  StatText(text: "Tirs"),
-                  StatText(text: "Arrêts"),
-                  StatText(text: "Tirs/match"),
-                  StatText(text: "Arrêts/match"),
-                  StatText(text: "Tacles réussis"),
-                  StatText(text: "Tacles tentés"),
-                  StatText(text: "Tacles réussis/match"),
-                  StatText(text: "Tacles tentés/match"),
-                  StatText(text: "Passes réussies"),
-                  StatText(text: "Passes tentées"),
-                  StatText(text: "Passes réussies/match"),
-                  StatText(text: "Passes tentées/match"),
-                  StatText(text: "Cartons rouges"),
-                ],
-              ),
-              Column(
-                children: [
-                  StatText(text: info['games'].toString()),
-                  StatText(text: info['goals'].toString()),
-                  StatText(text: info['goalsAgainst'].toString()),
-                  StatText(text: (info['goals'] / (info['games'])).toStringAsFixed(2)),
-                  StatText(text: (info['goalsAgainst'] / (info['games'])).toStringAsFixed(2)),
-                  StatText(text: info['shots'].toString()),
-                  StatText(text: info['saves'].toString()),
-                  StatText(text: (info['shots'] / (info['games'])).toStringAsFixed(2)),
-                  StatText(text: (info['saves'] / (info['games'])).toStringAsFixed(2)),
-                  StatText(text: info['tacklesmade'].toString()),
-                  StatText(text: info['tackleattempts'].toString()),
-                  StatText(text: (info['tacklesmade'] / (info['games'])).toStringAsFixed(2)),
-                  StatText(text: (info['tackleattempts'] / (info['games'])).toStringAsFixed(2)),
-                  StatText(text: info['passesmade'].toString()),
-                  StatText(text: info['passattempts'].toString()),
-                  StatText(text: (info['passesmade'] / (info['games'])).toStringAsFixed(2)),
-                  StatText(text: (info['passattempts'] / (info['games'])).toStringAsFixed(2)),
-                  StatText(text: info['redcards'].toString()),
-                ],
-              )
-            ],
+        Padding(
+          padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+          child: Container(
+            child: Column(
+              children: [
+                DetailRowByTwo(leftText: "Nombre de matchs joués", rightText: info['games'].toString()), // TODO voir si on ne peut pas mettre ça mieux
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Buts marqués", rightText: info['goals'].toString()),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Buts encaissés", rightText: info['goalsAgainst'].toString()),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Buts marqués/match", rightText: (info['goals'] / (info['games'])).toStringAsFixed(2)),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Buts encaissés/match", rightText: (info['goalsAgainst'] / (info['games'])).toStringAsFixed(2)),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Tirs", rightText: info['shots'].toString()),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Arrêts", rightText: info['saves'].toString()),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Tirs/match", rightText: (info['shots'] / (info['games'])).toStringAsFixed(2)),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Arrêts/match", rightText: (info['saves'] / (info['games'])).toStringAsFixed(2)),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Tacles réussis", rightText: info['tacklesmade'].toString()),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Tacles tentés", rightText: info['tackleattempts'].toString()),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Tacles réussis/match", rightText: (info['tacklesmade'] / (info['games'])).toStringAsFixed(2)),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Tacles tentés/match", rightText: (info['tackleattempts'] / (info['games'])).toStringAsFixed(2)),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Passes réussies", rightText: info['passesmade'].toString()),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Passes tentées", rightText: info['passattempts'].toString()),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Passes réussies/match", rightText: (info['passesmade'] / (info['games'])).toStringAsFixed(2)),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Passes tentées/match", rightText: (info['passattempts'] / (info['games'])).toStringAsFixed(2)),
+                StatsDivider(color: fourthColor, padding: 10),
+                DetailRowByTwo(leftText: "Cartons rouges", rightText: info['redcards'].toString()),
+                StatsDivider(color: fourthColor, padding: 10),
+              ],
+            ),
           ),
         ),
       ],
