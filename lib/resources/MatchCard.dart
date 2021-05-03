@@ -32,8 +32,13 @@ class MatchCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Image.asset(
-                      "assets/images/fcsilmi-white.png",
+                    if (this.silmiMatch.timestamp < 1619486263) Image.asset(
+                      "assets/images/fcsilmi_old-white.png",
+                      height: imagesSize,
+                      width: imagesSize,
+                    ),
+                    if (this.silmiMatch.timestamp >= 1619486263) Image.asset(
+                      "assets/images/fcsilmi_logo.png",
                       height: imagesSize,
                       width: imagesSize,
                     ),

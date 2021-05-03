@@ -49,7 +49,7 @@ class _MatchDetailsPageState extends State<MatchDetailsPage> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Image.asset(
-                          "assets/images/fcsilmi-white.png",
+                          "assets/images/fcsilmi_old-white.png",
                           height: widget.imagesSize,
                           width: widget.imagesSize,
                         ),

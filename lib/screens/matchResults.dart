@@ -42,6 +42,8 @@ class _MatchResultsPageState extends State<MatchResultsPage> {
 
   @override
   Widget build(BuildContext context) {
+    // TODO later : pull to refresh
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Derniers matchs"),

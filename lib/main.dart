@@ -32,7 +32,12 @@ class _PageState extends State<Page> {
 
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: darkSecondaryColor,
+        primaryColor: sixthColor,
+        primaryTextTheme: TextTheme(
+            headline6: TextStyle(
+                color: primaryColor
+            )
+        ),
         textSelectionColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
@@ -50,14 +55,14 @@ class _PageState extends State<Page> {
             }
         ),
         bottomNavigationBar: CurvedNavigationBar(
-          color: oldPrimaryColor,
+          color: sixthColor,
           backgroundColor: Colors.transparent,
           buttonBackgroundColor: primaryColor,
           height: 55,
           items: <Widget>[
-            Icon(Icons.analytics_outlined, size: 30),
-            Icon(Icons.contact_page_outlined, size: 30),
-            Icon(Icons.sports_soccer_outlined, size: 30),
+            Icon(Icons.analytics_outlined, size: 30, color: oldPrimaryColor),
+            Icon(Icons.contact_page_outlined, size: 30, color: oldPrimaryColor),
+            Icon(Icons.sports_soccer_outlined, size: 30, color: oldPrimaryColor),
           ],
           onTap: (index) {
             _pageController.jumpToPage(index);
