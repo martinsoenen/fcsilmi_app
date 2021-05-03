@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:fcsilmi_app/models/match.dart';
 import 'package:fcsilmi_app/resources/DetailRowByThree.dart';
 import 'package:fcsilmi_app/resources/MatchPlayerStats.dart';
@@ -27,11 +28,20 @@ class _MatchDetailsPageState extends State<MatchDetailsPage> {
     widget.match.players.forEach((key, value) {
       matchPlayers.add(key);
     });
+    final double imagesSize = 80;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          padding: const EdgeInsets.fromLTRB(10, 40, 10, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -48,10 +58,15 @@ class _MatchDetailsPageState extends State<MatchDetailsPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Image.asset(
+                        if (widget.match.timestamp < 1619486263) Image.asset(
                           "assets/images/fcsilmi_old-white.png",
-                          height: widget.imagesSize,
-                          width: widget.imagesSize,
+                          height: imagesSize,
+                          width: imagesSize,
+                        ),
+                        if (widget.match.timestamp >= 1619486264) Image.asset(
+                          "assets/images/fcsilmi_logo.png",
+                          height: imagesSize,
+                          width: imagesSize,
                         ),
                         SizedBox(height: 7),
                         Text(
@@ -122,7 +137,22 @@ class _MatchDetailsPageState extends State<MatchDetailsPage> {
             ],
           ),
         ),
-      )
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        color: sixthColor,
+        backgroundColor: Colors.transparent,
+        buttonBackgroundColor: primaryColor,
+        height: 55,
+        index: 2,
+        items: <Widget>[
+          Icon(Icons.analytics_outlined, size: 30, color: oldPrimaryColor),
+          Icon(Icons.contact_page_outlined, size: 30, color: oldPrimaryColor),
+          Icon(Icons.sports_soccer_outlined, size: 30, color: oldPrimaryColor),
+        ],
+        onTap: (index) {
+          Navigator.of(context).pop();
+        },
+      ),
     );
   }
 }

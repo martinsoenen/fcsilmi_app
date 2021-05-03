@@ -51,11 +51,11 @@ class _StatsPageState extends State<StatsPage> {
               child: Center(
                 child: Column(
                   children: [
-                    SizedBox(height: 60),
+                    SizedBox(height: 54),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(500),
-                      child: Image.network(
-                        'https://raw.githubusercontent.com/wbeuil/fcsilmi/b784ff28047fc10eef6ef29f8f89af4bce48464a/public/images/fcsilmi.png',
+                      child: Image.asset(
+                        "assets/images/fcsilmi_logo.png",
                         height: 160.0,
                         width: 160.0,
                       ),

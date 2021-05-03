@@ -19,6 +19,14 @@ class _PlayerDetailPageState extends State<PlayerDetailPage> {
     // TODO plus tard : fond foncé -> couleur claire, fond clair -> couleur foncée
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+      ),
       body: Container(
         child: Row(
           mainAxisSize: MainAxisSize.max,
@@ -29,6 +37,7 @@ class _PlayerDetailPageState extends State<PlayerDetailPage> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  SizedBox(height: 0),
                   Text(
                     widget.player.name,
                     textAlign: TextAlign.center,
@@ -77,6 +86,7 @@ class _PlayerDetailPageState extends State<PlayerDetailPage> {
                       ],
                     ),
                   ),
+                  SizedBox(height: 0),
                 ],
               ),
             ),
@@ -87,6 +97,7 @@ class _PlayerDetailPageState extends State<PlayerDetailPage> {
             image: NetworkImage("https://fcsilmi.club${widget.player.cover}"),
             fit: BoxFit.fitWidth,
             alignment: Alignment.bottomCenter,
+            colorFilter: new ColorFilter.mode(Colors.transparent.withOpacity(0.75), BlendMode.dstIn),
           ),
         ),
       )

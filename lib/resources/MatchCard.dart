@@ -37,7 +37,7 @@ class MatchCard extends StatelessWidget {
                       height: imagesSize,
                       width: imagesSize,
                     ),
-                    if (this.silmiMatch.timestamp >= 1619486263) Image.asset(
+                    if (this.silmiMatch.timestamp >= 1619486264) Image.asset(
                       "assets/images/fcsilmi_logo.png",
                       height: imagesSize,
                       width: imagesSize,

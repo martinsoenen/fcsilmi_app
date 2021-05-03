@@ -4,6 +4,7 @@ import 'package:fcsilmi_app/screens/matchResults.dart';
 import 'package:fcsilmi_app/screens/players.dart';
 import 'package:fcsilmi_app/screens/stats.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,39 +27,50 @@ class Page extends StatefulWidget {
 }
 
 class _PageState extends State<Page> {
+  int pageNumber = 0;
+
   @override
   Widget build(BuildContext context) {
-    final _pageController = PageController();
+    final _pageController = PageController(
+      keepPage: true
+    );
 
     return MaterialApp(
       theme: ThemeData(
+        backgroundColor: Colors.white,
         primaryColor: sixthColor,
         primaryTextTheme: TextTheme(
             headline6: TextStyle(
                 color: primaryColor
             )
         ),
-        textSelectionColor: Colors.white,
+        textTheme: GoogleFonts.robotoSlabTextTheme(Theme.of(context).textTheme),
+        accentColor: sixthColor,
+        textSelectionColor: thirdColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       color: primaryColor,
       home: Scaffold(
         body: PageView(
           controller: _pageController,
-            children: [
-              StatsPage(),
-              PlayersPage(),
-              MatchResultsPage(),
-            ],
-            onPageChanged: (int index) {
-              _pageController.jumpToPage(index);
-            }
+          children: [
+            StatsPage(),
+            PlayersPage(),
+            MatchResultsPage(),
+          ],
+          onPageChanged: (int index) {
+            setState(() {
+              pageNumber = index;
+            });
+            _pageController.jumpToPage(index);
+          }
         ),
         bottomNavigationBar: CurvedNavigationBar(
           color: sixthColor,
           backgroundColor: Colors.transparent,
           buttonBackgroundColor: primaryColor,
           height: 55,
+          index: pageNumber,
           items: <Widget>[
             Icon(Icons.analytics_outlined, size: 30, color: oldPrimaryColor),
             Icon(Icons.contact_page_outlined, size: 30, color: oldPrimaryColor),
@@ -66,6 +78,9 @@ class _PageState extends State<Page> {
           ],
           onTap: (index) {
             _pageController.jumpToPage(index);
+            setState(() {
+              pageNumber = index;
+            });
           },
         ),
       ),
