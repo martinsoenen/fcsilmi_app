@@ -1,11 +1,12 @@
+import 'package:fcsilmi_app/resources/StatText.dart';
 import 'package:flutter/material.dart';
 
-class MatchDetailRow extends StatelessWidget {
+class DetailRowByThree extends StatelessWidget {
   final String fcSilmiStat;
   final String contestantStat;
   final String middleText;
 
-  MatchDetailRow({
+  DetailRowByThree({
     this.fcSilmiStat,
     this.contestantStat,
     this.middleText
@@ -21,7 +22,7 @@ class MatchDetailRow extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Text(fcSilmiStat),
+              StatText(text: fcSilmiStat),
             ],
           ),
         ),
@@ -30,10 +31,7 @@ class MatchDetailRow extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Text(
-                  middleText,
-                  textAlign: TextAlign.center,
-                )
+                StatText(text: middleText),
               ],
             )
         ),
@@ -42,7 +40,7 @@ class MatchDetailRow extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Text(contestantStat),
+              StatText(text: contestantStat),
             ],
           ),
         ),

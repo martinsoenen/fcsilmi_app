@@ -1,4 +1,5 @@
 import 'package:fcsilmi_app/models/infos.dart';
+import 'package:fcsilmi_app/resources/StatText.dart';
 import 'package:fcsilmi_app/resources/const.dart';
 
 import 'package:flutter/material.dart';
@@ -54,32 +55,32 @@ class _StatsState extends State<Stats> {
             children: [
               Column(
                 children: [
-                  Text("Buts marqués"),
-                  Text("Buts encaissés"),
-                  Text("Buts marqués/match"),
-                  Text("Buts encaissés/match"),
-                  Text("Saisons disputées"),
-                  Text("Meilleur division"),
-                  Text("Titres remportés"),
-                  Text("Championnats remportés"),
-                  Text("Coupes remportées"),
-                  Text("Promotions"),
-                  Text("Relégations"),
+                  StatText(text: "Buts marqués"),
+                  StatText(text: "Buts encaissés"),
+                  StatText(text: "Buts marqués/match"),
+                  StatText(text: "Buts encaissés/match"),
+                  StatText(text: "Saisons disputées"),
+                  StatText(text: "Meilleur division"),
+                  StatText(text: "Titres remportés"),
+                  StatText(text: "Championnats remportés"),
+                  StatText(text: "Coupes remportées"),
+                  StatText(text: "Promotions"),
+                  StatText(text: "Relégations"),
                 ],
               ),
               Column(
                 children: [
-                  Text(widget.info.alltimeGoals.toString()),
-                  Text(widget.info.alltimeGoalsAgainst.toString()),
-                  Text((widget.info.alltimeGoals / widget.info.totalGames).toStringAsFixed(2)),
-                  Text((widget.info.alltimeGoalsAgainst / widget.info.totalGames).toStringAsFixed(2)),
-                  Text(widget.info.seasons.toString()),
-                  Text(widget.info.bestDivision.toString()),
-                  Text(widget.info.titlesWon.toString()),
-                  Text(widget.info.leaguesWon.toString()),
-                  Text(widget.info.totalCupsWon.toString()),
-                  Text(widget.info.promotions.toString()),
-                  Text(widget.info.relegations.toString()),
+                  StatText(text: widget.info.alltimeGoals.toString()),
+                  StatText(text: widget.info.alltimeGoalsAgainst.toString()),
+                  StatText(text: (widget.info.alltimeGoals / widget.info.totalGames).toStringAsFixed(2)),
+                  StatText(text: (widget.info.alltimeGoalsAgainst / widget.info.totalGames).toStringAsFixed(2)),
+                  StatText(text: widget.info.seasons.toString()),
+                  StatText(text: widget.info.bestDivision.toString()),
+                  StatText(text: widget.info.titlesWon.toString()),
+                  StatText(text: widget.info.leaguesWon.toString()),
+                  StatText(text: widget.info.totalCupsWon.toString()),
+                  StatText(text: widget.info.promotions.toString()),
+                  StatText(text: widget.info.relegations.toString()),
                 ],
               )
             ],
