@@ -21,7 +21,7 @@ class MatchCard extends StatelessWidget {
         children: [
           SizedBox(height: 6),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 6, 0, 12),
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 12),
             child: ScoreText(silmiResult: int.parse(this.silmiMatch.clubs.fcsilmi.result)),
           ),
           Row(

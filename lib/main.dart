@@ -42,7 +42,13 @@ class _PageState extends State<Page> {
         primaryTextTheme: TextTheme(
             headline6: TextStyle(
                 color: primaryColor
-            )
+            ),
+            bodyText1: TextStyle(
+              color: sixthColor
+            ),
+            bodyText2: TextStyle(
+                color: sixthColor
+            ),
         ),
         textTheme: GoogleFonts.robotoSlabTextTheme(Theme.of(context).textTheme),
         accentColor: sixthColor,

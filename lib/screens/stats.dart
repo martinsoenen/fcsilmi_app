@@ -85,7 +85,7 @@ class _StatsPageState extends State<StatsPage> {
                       style: TextStyle(fontWeight: FontWeight.w500, fontSize: 32),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(8,14,20,30),
+                      padding: const EdgeInsets.fromLTRB(8,14,20,36),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [

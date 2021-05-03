@@ -46,7 +46,7 @@ class _PlayerDetailPageState extends State<PlayerDetailPage> {
                   Container(
                     child: Column(
                       children: [
-                        Text("Note moyenne : " + widget.player.rating),
+                        Text.rich(TextSpan(text: "Note moyenne : " + widget.player.rating, style: TextStyle(color: secondaryColor))),
                         StatsDivider(padding: 120, color: Color.fromRGBO(235, 236, 237, 0.4)),
                         Text("Matchs joués : " + widget.player.gamesPlayed.toString()),
                         StatsDivider(padding: 120, color: Color.fromRGBO(235, 236, 237, 0.4)),
@@ -97,7 +97,7 @@ class _PlayerDetailPageState extends State<PlayerDetailPage> {
             image: NetworkImage("https://fcsilmi.club${widget.player.cover}"),
             fit: BoxFit.fitWidth,
             alignment: Alignment.bottomCenter,
-            colorFilter: new ColorFilter.mode(Colors.transparent.withOpacity(0.75), BlendMode.dstIn),
+            colorFilter: new ColorFilter.mode(Colors.transparent.withOpacity(0.7), BlendMode.dstIn),
           ),
         ),
       )
