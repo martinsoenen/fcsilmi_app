@@ -32,7 +32,7 @@ class _InfosPageState extends State<InfosPage> {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(10, 110, 10, 40),
-            child: Column(
+            child: Column( // TODO : centrer mieux ici avec un truc Flex
               children: [
                 Text(
                   "Cette application est une application non-officielle de statistiques du FC Silmi.",

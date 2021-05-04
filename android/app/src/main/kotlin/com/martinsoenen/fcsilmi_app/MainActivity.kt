@@ -1,4 +1,4 @@
-package com.martinsoenen.fcsilmi_app
+package com.martinsoenen.fcsilmi
 
 import io.flutter.embedding.android.FlutterActivity
 

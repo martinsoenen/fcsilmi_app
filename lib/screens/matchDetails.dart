@@ -58,12 +58,12 @@ class _MatchDetailsPageState extends State<MatchDetailsPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        if (widget.match.timestamp < 1619486263) Image.asset(
+                        if (widget.match.timestamp < 1619486264) Image.asset(
                           "assets/images/fcsilmi_old-white.png",
                           height: imagesSize,
                           width: imagesSize,
                         ),
-                        if (widget.match.timestamp >= 1619486264) Image.asset(
+                        if (widget.match.timestamp >= 1619486265) Image.asset(
                           "assets/images/fcsilmi_logo.png",
                           height: imagesSize,
                           width: imagesSize,
