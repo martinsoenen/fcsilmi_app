@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:fcsilmi_app/resources/MatchCard.dart';
+import 'package:fcsilmi_app/resources/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:http/http.dart' as http;
@@ -77,7 +78,7 @@ getSomeMatchs(int pageNumber) async {
 
     return matchs;
   } else {
-    // TODO errorToast
-    print(response.statusCode);
+    showErrorToast("Erreur pour joindre l'API : ${response.statusCode} : ${response.body}");
+    return null;
   }
 }

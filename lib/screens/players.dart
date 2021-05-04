@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:fcsilmi_app/resources/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -26,7 +27,7 @@ class _PlayersPageState extends State<PlayersPage> {
             FutureBuilder(
               future: getPlayers(),
                 builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                  if (snapshot.hasData){ // TODO : handle error
+                  if (snapshot.hasData){
                     Map<String, dynamic> body = jsonDecode(snapshot.data);
 
                     List<Player> players = [];
@@ -43,7 +44,7 @@ class _PlayersPageState extends State<PlayersPage> {
                         itemCount: players.length,
                         itemBuilder: (context, index) {
                           return ListTile(
-                            leading: CircleAvatar(backgroundImage: NetworkImage(players[index].image)),
+                            leading: CircleAvatar(backgroundImage: NetworkImage(players[index].image)), // TODO later : cache image
                             title: Text(players[index].pseudo),
                             subtitle: Text(players[index].name),
                             trailing: new Icon(Icons.arrow_forward_ios),
@@ -57,6 +58,10 @@ class _PlayersPageState extends State<PlayersPage> {
                         }
                       ),
                     );
+                  }
+                  else if (snapshot.hasError) {
+                    showErrorToast("Erreur pour joindre l'API : ${snapshot.error}");
+                    return null;
                   }
                   else {
                     return Center(child: CircularProgressIndicator());
@@ -76,7 +81,7 @@ getPlayers() async {
   if (response.statusCode == 200) {
     return response.body;
   } else {
-    // TODO errorToast
-    print(response.statusCode);
+    showErrorToast("Erreur ${response.statusCode} : ${response.body}");
+    return null;
   }
 }

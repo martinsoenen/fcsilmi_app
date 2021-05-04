@@ -50,7 +50,7 @@ class SessionStats extends StatelessWidget {
           child: Container(
             child: Column(
               children: [
-                DetailRowByTwo(leftText: "Nombre de matchs joués", rightText: info['games'].toString()), // TODO voir si on ne peut pas mettre ça mieux
+                DetailRowByTwo(leftText: "Nombre de matchs joués", rightText: info['games'].toString()),
                 StatsDivider(color: fourthColor, padding: 10),
                 DetailRowByTwo(leftText: "Buts marqués", rightText: info['goals'].toString()),
                 StatsDivider(color: fourthColor, padding: 10),

@@ -3,6 +3,7 @@ import 'package:fcsilmi_app/resources/SessionStats.dart';
 import 'package:fcsilmi_app/resources/Stats.dart';
 import 'package:fcsilmi_app/resources/const.dart';
 import 'package:fcsilmi_app/resources/Point.dart';
+import 'package:fcsilmi_app/resources/toast.dart';
 import 'package:fcsilmi_app/screens/infos.dart';
 
 import 'dart:convert';
@@ -133,7 +134,7 @@ getInfos() async {
   if (response.statusCode == 200) {
     return Infos.fromJson(json.decode(response.body));
   } else {
-    // TODO errorToast
-    print(response.statusCode);
+    showErrorToast("Erreur ${response.statusCode} pour joindre l'API : ${response.body}");
+    return null;
   }
 }
