@@ -25,27 +25,30 @@ class _StatsState extends State<Stats> {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.fromLTRB(60, 30, 60, 30),
-          child: PieChart(
-            dataMap: {
-              "${widget.info.wins} victoires": widget.info.wins.toDouble(),
-              "${widget.info.ties} nuls": widget.info.ties.toDouble(),
-              "${widget.info.losses} défaites": widget.info.losses.toDouble(),
-            },
-            colorList: [
-              winGreen,
-              greyTie,
-              redLoss,
-            ],
-            initialAngleInDegree: -120,
-            legendOptions: LegendOptions(
-              showLegendsInRow: true,
-              legendPosition: LegendPosition.bottom,
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 400),
+            child: PieChart(
+              dataMap: {
+                "${widget.info.wins} victoires": widget.info.wins.toDouble(),
+                "${widget.info.ties} nuls": widget.info.ties.toDouble(),
+                "${widget.info.losses} défaites": widget.info.losses.toDouble(),
+              },
+              colorList: [
+                winGreen,
+                greyTie,
+                redLoss,
+              ],
+              initialAngleInDegree: -120,
+              legendOptions: LegendOptions(
+                showLegendsInRow: true,
+                legendPosition: LegendPosition.bottom,
+              ),
+              chartValuesOptions: ChartValuesOptions(
+                showChartValueBackground: false,
+                showChartValuesInPercentage: true,
+              ),
+              chartType: ChartType.ring,
             ),
-            chartValuesOptions: ChartValuesOptions(
-              showChartValueBackground: false,
-              showChartValuesInPercentage: true,
-            ),
-            chartType: ChartType.ring,
           ),
         ),
         Padding(

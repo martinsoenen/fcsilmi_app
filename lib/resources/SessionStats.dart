@@ -19,27 +19,30 @@ class SessionStats extends StatelessWidget {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.fromLTRB(60, 30, 60, 30),
-          child: PieChart(
-            dataMap: {
-              "${info["wins"]} victoires": info["wins"].toDouble(),
-              "${info["ties"]} nuls": info["ties"].toDouble(),
-              "${info["losses"]} défaites": info["losses"].toDouble(),
-            },
-            colorList: [
-              winGreen,
-              greyTie,
-              redLoss,
-            ],
-            initialAngleInDegree: -120,
-            legendOptions: LegendOptions(
-              showLegendsInRow: true,
-              legendPosition: LegendPosition.bottom,
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 400),
+            child: PieChart(
+              dataMap: {
+                "${info["wins"]} victoires": info["wins"].toDouble(),
+                "${info["ties"]} nuls": info["ties"].toDouble(),
+                "${info["losses"]} défaites": info["losses"].toDouble(),
+              },
+              colorList: [
+                winGreen,
+                greyTie,
+                redLoss,
+              ],
+              initialAngleInDegree: -120,
+              legendOptions: LegendOptions(
+                showLegendsInRow: true,
+                legendPosition: LegendPosition.bottom,
+              ),
+              chartValuesOptions: ChartValuesOptions(
+                showChartValueBackground: false,
+                showChartValuesInPercentage: true,
+              ),
+              chartType: ChartType.ring,
             ),
-            chartValuesOptions: ChartValuesOptions(
-              showChartValueBackground: false,
-              showChartValuesInPercentage: true,
-            ),
-            chartType: ChartType.ring,
           ),
         ),
         Padding(
