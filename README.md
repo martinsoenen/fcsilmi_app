@@ -2,15 +2,8 @@
 
 Application non-officielle de statistiques du FC Silmi.
 
-## Getting Started
+Avec cette application, retrouvez tous les statistiques de votre équipe préférée, séance par séance, joueur par joueur, match par match.
+Faite par un fan pour les fans, cette application est vouée à évoluer au fur et à mesure du temps, en fonction des possibilités.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+N'hésitez pas à faire des propositions d'améliorations ou même des Pull Request avec les améliorations directement effectuées !
+On peut trouver plusieurs TODO dans le code que je projette de faire dès que possible et de mettre dans une version future.
