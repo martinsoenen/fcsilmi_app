@@ -1,4 +1,5 @@
 import 'package:fcsilmi_app/resources/const.dart';
+import 'package:fcsilmi_app/resources/toast.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,9 @@ class _InfosPageState extends State<InfosPage> {
             image: DecorationImage(
                 image: AssetImage("assets/images/fcsilmi_ultra.png"),
                 fit: BoxFit.fitWidth,
-                alignment: Alignment.bottomCenter)),
+                alignment: Alignment.bottomCenter
+            )
+        ),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(10, 110, 10, 40),
@@ -71,10 +74,9 @@ class _InfosPageState extends State<InfosPage> {
                             ..onTap = () async {
                               if (await canLaunch("https://fcsilmi.club")) {
                                 launch("https://fcsilmi.club");
+                              } else {
+                                showErrorToast("Impossible de lancer cet URL.");
                               }
-                            // else {
-                            //   showErrorToast("Impossible to launch this URL", context);
-                            // }
                           },
                           style: new TextStyle(
                               color: secondaryColor,
@@ -96,10 +98,9 @@ class _InfosPageState extends State<InfosPage> {
                             ..onTap = () async {
                               if (await canLaunch("https://twitter.com/FCSilmi")) {
                                 launch("https://twitter.com/FCSilmi");
+                              } else {
+                                showErrorToast("Impossible de lancer cet URL.");
                               }
-                            // else {
-                            //   showErrorToast("Impossible to launch this URL", context);
-                            // }
                           },
                           style: new TextStyle(
                               color: secondaryColor,
@@ -125,10 +126,9 @@ class _InfosPageState extends State<InfosPage> {
                         if (await canLaunch(
                             "https://github.com/martinsoenen")) {
                           launch("https://github.com/martinsoenen");
+                        } else {
+                          showErrorToast("Impossible de lancer cet URL.");
                         }
-                        // else {
-                        //   showErrorToast("Impossible to launch this URL", context);
-                        // }
                       },
                     ),
                     RawMaterialButton(
@@ -141,10 +141,9 @@ class _InfosPageState extends State<InfosPage> {
                       onPressed: () async {
                         if (await canLaunch("https://twitter.com/FCSilmi")) {
                           launch("https://twitter.com/FCSilmi");
+                        } else {
+                          showErrorToast("Impossible de lancer cet URL.");
                         }
-                    //     else {
-                    //           showErrorToast("Impossible to launch this URL", context);
-                    //         }
                       },
                     ),
                     RawMaterialButton(
@@ -157,10 +156,9 @@ class _InfosPageState extends State<InfosPage> {
                       onPressed: () async {
                         if (await canLaunch("https://fcsilmi.club/")) {
                           launch("https://fcsilmi.club/");
+                        } else {
+                          showErrorToast("Impossible de lancer cet URL.");
                         }
-                    //     else {
-                    //           showErrorToast("Impossible to launch this URL", context);
-                    //         }
                       },
                     ),
                     RawMaterialButton(
@@ -172,10 +170,9 @@ class _InfosPageState extends State<InfosPage> {
                       onPressed: () async {
                         if (await canLaunch("https://fcsilmi.com/")) {
                           launch("https://fcsilmi.com/");
+                        } else {
+                          showErrorToast("Impossible de lancer cet URL.");
                         }
-                    //     else {
-                    //           showErrorToast("Impossible to launch this URL", context);
-                    //         }
                       },
                     ),
                   ],

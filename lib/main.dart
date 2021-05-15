@@ -78,9 +78,9 @@ class _PageState extends State<Page> {
           height: 55,
           index: pageNumber,
           items: <Widget>[
-            Icon(Icons.analytics_outlined, size: 30, color: oldPrimaryColor),
-            Icon(Icons.contact_page_outlined, size: 30, color: oldPrimaryColor),
-            Icon(Icons.sports_soccer_outlined, size: 30, color: oldPrimaryColor),
+            Icon(Icons.analytics_outlined, size: 30, color: (pageNumber == 0) ? sixthColor : primaryColor),
+            Icon(Icons.contact_page_outlined, size: 30, color: (pageNumber == 1) ? sixthColor : primaryColor),
+            Icon(Icons.sports_soccer_outlined, size: 30, color: (pageNumber == 2) ? sixthColor : primaryColor),
           ],
           onTap: (index) {
             _pageController.jumpToPage(index);

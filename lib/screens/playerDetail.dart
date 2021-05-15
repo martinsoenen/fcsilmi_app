@@ -80,7 +80,7 @@ class _PlayerDetailPageState extends State<PlayerDetailPage> {
                         StatsDivider(padding: 120, color: Color.fromRGBO(235, 236, 237, 0.4)),
                         Text("Taux de réussite tacles : " + (widget.player.tacklesmade / widget.player.tackleattempts * 100).toStringAsFixed(2) + '%'),
                         StatsDivider(padding: 120, color: Color.fromRGBO(235, 236, 237, 0.4)),
-                        Text("Titre d'homme du match : " + widget.player.mom.toString()),
+                        Text("Titres d'homme du match : " + widget.player.mom.toString()),
                         StatsDivider(padding: 120, color: Color.fromRGBO(235, 236, 237, 0.4)),
                         Text("Cartons rouges pris : " + widget.player.redcards.toString()),
                       ],

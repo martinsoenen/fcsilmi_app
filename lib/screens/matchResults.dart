@@ -66,7 +66,7 @@ class _MatchResultsPageState extends State<MatchResultsPage> {
 }
 
 getSomeMatchs(int pageNumber) async {
-  http.Response response = await http.get(apiUrl + "/matchs?page=${pageNumber}");
+  http.Response response = await http.get(apiUrl + "/matchs?page=$pageNumber");
 
   if (response.statusCode == 200) {
     var body = jsonDecode(response.body);
