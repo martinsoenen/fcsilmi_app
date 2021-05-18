@@ -44,7 +44,7 @@ class _MatchPlayerStatsState extends State<MatchPlayerStats> {
             StatsDivider(padding: 60, color: fourthColor),
             DetailRowByTwo(leftText: "Passes tentées", rightText: widget.player['passattempts'].toString()),
             StatsDivider(padding: 60, color: fourthColor),
-            if (widget.player['passattempts'] != "0") DetailRowByTwo(leftText: "Taux de réussite tacles", rightText: (((int.parse(widget.player['passesmade']) / int.parse(widget.player['passattempts'])) * 100).toStringAsFixed(2) + "%")),
+            if (widget.player['passattempts'] != "0") DetailRowByTwo(leftText: "Taux de réussite passes", rightText: (((int.parse(widget.player['passesmade']) / int.parse(widget.player['passattempts'])) * 100).toStringAsFixed(2) + "%")),
             if (widget.player['passattempts'] != "0") StatsDivider(padding: 60, color: fourthColor),
             DetailRowByTwo(leftText: "Carton rouge", rightText: widget.player['redcards'].toString() == "0" ? "Non" : "Oui"),
             StatsDivider(padding: 60, color: fourthColor),
